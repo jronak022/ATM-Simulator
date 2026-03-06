@@ -30,3 +30,6 @@ gen/
 
 # macOS
 .DS_Store
+
+# Secrets
+config.properties
