@@ -1,7 +1,6 @@
 package atm.simulator.ui;
 
-import atm.simulator.data.TransactionDAO;
-import atm.simulator.data.UserDAO;
+import atm.simulator.AppContext;
 import atm.simulator.domain.ATMService;
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +17,7 @@ public class Login extends JFrame implements ActionListener {
 
     public Login() {
         super("Bank Management System");
-        this.atmService = new ATMService(new UserDAO(), new TransactionDAO());
+        this.atmService = AppContext.getInstance().getATMService();
         ImageIcon bankIcon = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
         Image scaledBankImage = bankIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon bankImageIcon = new ImageIcon(scaledBankImage);

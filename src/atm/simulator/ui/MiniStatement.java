@@ -1,15 +1,13 @@
 package atm.simulator.ui;
 
+import atm.simulator.AppContext;
+import atm.simulator.domain.ATMService;
 import atm.simulator.model.Transaction;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
-import atm.simulator.data.TransactionDAO;
-import atm.simulator.data.UserDAO;
-import atm.simulator.domain.ATMService;
 
 public class MiniStatement extends JFrame implements ActionListener {
     String cardNumber;
@@ -18,7 +16,7 @@ public class MiniStatement extends JFrame implements ActionListener {
 
     public MiniStatement(String cardNumber) {
         this.cardNumber = cardNumber;
-        this.atmService = new ATMService(new UserDAO(), new TransactionDAO());
+        this.atmService = AppContext.getInstance().getATMService();
         getContentPane().setBackground(new Color(255, 204, 204));
         setSize(400, 600);
         setLocation(20, 20);

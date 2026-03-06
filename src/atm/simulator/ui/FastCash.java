@@ -1,7 +1,6 @@
 package atm.simulator.ui;
 
-import atm.simulator.data.TransactionDAO;
-import atm.simulator.data.UserDAO;
+import atm.simulator.AppContext;
 import atm.simulator.domain.ATMService;
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +15,7 @@ public class FastCash extends JFrame implements ActionListener {
 
     public FastCash(String cardNumber) {
         this.cardNumber = cardNumber;
-        this.atmService = new ATMService(new UserDAO(), new TransactionDAO());
+        this.atmService = AppContext.getInstance().getATMService();
 
         ImageIcon rawAtmIcon = new ImageIcon(ClassLoader.getSystemResource("icon/atm2.png"));
         Image scaledAtmImage = rawAtmIcon.getImage().getScaledInstance(1550, 830, Image.SCALE_DEFAULT);
