@@ -17,8 +17,8 @@ public class Login extends JFrame implements ActionListener {
     JButton signInButton, clearButton;
 
     public Login() {
-        this.atmService = new ATMService(new UserDAO(), new TransactionDAO());
         super("Bank Management System");
+        this.atmService = new ATMService(new UserDAO(), new TransactionDAO());
         ImageIcon bankIcon = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
         Image scaledBankImage = bankIcon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon bankImageIcon = new ImageIcon(scaledBankImage);
