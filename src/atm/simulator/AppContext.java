@@ -28,6 +28,11 @@ public class AppContext {
         atmService = new ATMService(userDAO, transactionDAO);
     }
 
+    /**
+     * Gets the singleton instance of AppContext.
+     * 
+     * @return the AppContext instance
+     */
     public static synchronized AppContext getInstance() {
         if (instance == null) {
             instance = new AppContext();
@@ -35,14 +40,29 @@ public class AppContext {
         return instance;
     }
 
+    /**
+     * Gets the ATM service.
+     * 
+     * @return the atm service instance
+     */
     public ATMService getATMService() {
         return atmService;
     }
 
+    /**
+     * Gets the user DAO.
+     * 
+     * @return the user dao instance
+     */
     public IUserDAO getUserDAO() {
         return userDAO;
     }
 
+    /**
+     * Gets the transaction DAO.
+     * 
+     * @return the transaction dao instance
+     */
     public ITransactionDAO getTransactionDAO() {
         return transactionDAO;
     }

@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * UI screen for withdrawing money.
+ */
 public class Withdrawal extends JFrame implements ActionListener {
     JButton withdrawButton, backButton;
     TextField amountInputField;
     String cardNumber;
     ATMService atmService;
 
+    /**
+     * Constructs the Withdrawal frame.
+     * 
+     * @param cardNumber the card number
+     */
     public Withdrawal(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();

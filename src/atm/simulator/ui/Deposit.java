@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * UI screen for depositing money.
+ */
 public class Deposit extends JFrame implements ActionListener {
     JButton depositButton, backButton;
     TextField amountInputField;
     String cardNumber;
     ATMService atmService;
 
+    /**
+     * Constructs the Deposit frame.
+     * 
+     * @param cardNumber the card number
+     */
     public Deposit(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();

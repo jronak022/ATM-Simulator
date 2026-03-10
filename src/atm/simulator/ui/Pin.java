@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * UI screen for changing the account PIN.
+ */
 public class Pin extends JFrame implements ActionListener {
     JButton changeButton, backButton;
     JPasswordField pinField1, pinField2;
     String cardNumber;
     ATMService atmService;
 
+    /**
+     * Constructs the Pin change frame.
+     * 
+     * @param cardNumber the card number
+     */
     public Pin(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();

@@ -5,11 +5,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Main menu screen for the ATM Simulator.
+ * Allows users to select various banking operations.
+ */
 public class ATMMenu extends JFrame implements ActionListener {
     JButton depositButton, withdrawalButton, fastCashButton, miniStatementButton, pinChangeButton, balanceEnquiryButton,
             exitButton;
     String cardNumber;
 
+    /**
+     * Constructs the ATMMenu frame with the specified card number.
+     * 
+     * @param cardNumber the card number of the logged-in user
+     */
     public ATMMenu(String cardNumber) {
         this.cardNumber = cardNumber;
 
@@ -81,6 +90,11 @@ public class ATMMenu extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * Handles menu button clicks and navigates to selected screens.
+     * 
+     * @param e the action event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == depositButton) {
