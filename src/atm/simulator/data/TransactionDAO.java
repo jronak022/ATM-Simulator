@@ -8,13 +8,28 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data Access Object for handling Transaction-related database operations.
+ */
 public class TransactionDAO implements ITransactionDAO {
     private DatabaseConnection con;
 
+    /**
+     * Constructs a TransactionDAO with a database connection.
+     * 
+     * @param con the database connection to use
+     */
     public TransactionDAO(DatabaseConnection con) {
         this.con = con;
     }
 
+    /**
+     * Records a new transaction in the database.
+     * 
+     * @param cardNumber the card number for the transaction
+     * @param type       the type of transaction (Deposit/Withdrawal)
+     * @param amount     the amount of the transaction
+     */
     public void addTransaction(String cardNumber, String type, double amount) {
         String tid = "T" + System.currentTimeMillis() + (int) (Math.random() * 1000);
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
@@ -35,6 +50,12 @@ public class TransactionDAO implements ITransactionDAO {
         }
     }
 
+    /**
+     * Retrieves a list of transactions for a specific card number.
+     * 
+     * @param cardNumber the card number to fetch transactions for
+     * @return a list of Transaction objects
+     */
     public List<Transaction> getTransactions(String cardNumber) {
         List<Transaction> list = new ArrayList<>();
         String query = "SELECT * FROM Transaction WHERE Aid = ? ORDER BY DOT DESC";
@@ -57,6 +78,12 @@ public class TransactionDAO implements ITransactionDAO {
         return list;
     }
 
+    /**
+     * Calculates the current balance for a specified card number.
+     * 
+     * @param cardNumber the card number to calculate balance for
+     * @return the current balance
+     */
     public double getBalance(String cardNumber) {
         double balance = 0;
         String query = "SELECT SUM(Deposit_amt) - SUM(Withdrawal_amt) AS Current_bal FROM Transaction WHERE Aid = ?";

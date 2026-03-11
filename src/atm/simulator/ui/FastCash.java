@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * UI screen for fast cash withdrawals (predefined amounts).
+ */
 public class FastCash extends JFrame implements ActionListener {
 
     JButton rs100Button, rs500Button, rs1000Button, rs2000Button, rs5000Button, rs10000Button, backButton;
     String cardNumber;
     ATMService atmService;
 
+    /**
+     * Constructs the FastCash frame.
+     * 
+     * @param cardNumber the card number
+     */
     public FastCash(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();

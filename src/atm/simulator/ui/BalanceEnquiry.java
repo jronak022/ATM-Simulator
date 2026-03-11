@@ -7,12 +7,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * UI screen for balance enquiry.
+ */
 public class BalanceEnquiry extends JFrame implements ActionListener {
     JLabel balanceLabel;
     JButton backButton;
     String cardNumber;
     ATMService atmService;
 
+    /**
+     * Constructs the BalanceEnquiry frame.
+     * 
+     * @param cardNumber the card number
+     */
     public BalanceEnquiry(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();

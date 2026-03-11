@@ -7,6 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Login screen for the ATM Simulator.
+ * Provides fields for card number and PIN entry.
+ */
 public class Login extends JFrame implements ActionListener {
     JLabel welcomeLabel, cardNumberLabel, pinLabel;
     JTextField cardNumberTextField;
@@ -15,6 +19,9 @@ public class Login extends JFrame implements ActionListener {
 
     JButton signInButton, clearButton;
 
+    /**
+     * Constructs the Login frame and initializes UI components.
+     */
     public Login() {
         super("Bank Management System");
         this.atmService = AppContext.getInstance().getATMService();
@@ -90,6 +97,11 @@ public class Login extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * Handles button click events for SIGN IN and CLEAR.
+     * 
+     * @param e the action event
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

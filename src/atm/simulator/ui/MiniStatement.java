@@ -9,11 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * UI screen for displaying the mini statement.
+ */
 public class MiniStatement extends JFrame implements ActionListener {
     String cardNumber;
     JButton backButton;
     ATMService atmService;
 
+    /**
+     * Constructs the MiniStatement frame.
+     * 
+     * @param cardNumber the card number
+     */
     public MiniStatement(String cardNumber) {
         this.cardNumber = cardNumber;
         this.atmService = AppContext.getInstance().getATMService();
